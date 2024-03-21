@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Holden.wiki Viewer</title>
+
+    <link rel="stylesheet" href="/stylesheets/viewer.css">
+
+    <script type="application/javascript" src="/javascripts/viewer.js"></script>
+</head>
+<body>
+    <header id="header">
+        <a href="/" class="branding">
+            <img src="/images/holden.svg" alt="Holden Logo" class="logo">
+            <h1>holden<small>.wiki</small></h1>
+        </a>
+    </header>
+    <main>
+        <div id="sidebar">
+            <div id="outline">
+                <%- sidebar %>
+            </div>
+            <footer id="sidebar-footer">
+                <div>Made by Mibble &hearts;</div>
+            </footer>
+        </div>
+        <iframe id="viewer" title="Document Viewer" src="<%= url %>" width="100%" height="800px"></iframe>
+    </main>
+</body>
+</html>
