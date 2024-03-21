@@ -10,6 +10,34 @@
     <style>
         {css}
     </style>
+
+    <script type="application/javascript">
+
+
+        window.addEventListener('load', () => {
+            let pageSizePx = 850;
+
+            let firstPage = document.getElementById('pf1');
+            if (firstPage) {
+                pageSizePx = firstPage.clientWidth + 60;
+            }
+
+            function updateZoom() {
+                let zoom = window.innerWidth / pageSizePx;
+
+                zoom = Math.min(zoom, 1.33);
+
+                document.body.style.zoom = zoom;
+
+            }
+
+            updateZoom();
+
+            window.addEventListener('resize', () => {
+                updateZoom();
+            });
+        });
+    </script>
 </head>
 <body>
 {html}
