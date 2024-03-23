@@ -68,11 +68,16 @@ router.get(/^(.+)$/i, async (req, res, next) => {
     }
     let outline = Buffer.concat(chunks).toString();
 
-    // *really* dirty hack to correct links, but hey it works
-    //outline = outline.replaceAll('href="../', 'href="');
+    // Determine file name from the URL
+    let originalFileName = req.originalUrl;
+    if (originalFileName.endsWith('/')) {
+        originalFileName = originalFileName.substring(0, originalFileName.length - 1);
+    }
+    originalFileName = decodeURI(originalFileName.substring(originalFileName.lastIndexOf('/') + 1));
 
     res.render('viewer', {
         url: req.baseUrl + req.url + '/' + fileName + '.html',
+        fileName: originalFileName,
         sidebar: outline
     });
 });
