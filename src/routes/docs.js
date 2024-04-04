@@ -17,6 +17,11 @@ const docsRoot = path.resolve(env.DOCS_ROOT);
 export default function(index, pdfIndex) {
     const router = express.Router();
 
+    router.use((req, res, next) => {
+        req.url = req.url.toLowerCase();
+        next();
+    });
+
     router.get('/', (req, res) => {
         res.redirect('/docs/Main Menu');
     });
