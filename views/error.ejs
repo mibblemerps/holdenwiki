@@ -6,7 +6,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="/images/favicon.svg">
 
-    <link rel="stylesheet" href="/stylesheets/viewer.css">
+    <link rel="stylesheet" href="/stylesheets/main.css">
+
+    <style>
+        .alert {
+            box-sizing: border-box;
+            padding: .75rem 1.25rem;
+            border-left: solid 2px;
+            border-right: solid 2px;
+
+            color: #856404;
+            background-color: #fff3cd;
+            border-color: #ffeeba;
+        }
+
+        .alert:before {
+            display: inline-block;
+            content: "\26A0";
+            font-size: 4rem;
+            line-height: 4rem;
+            padding-right: 1rem;
+            opacity: 0.33;
+        }
+
+        .alert > * {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        /*
+        Container for full page error
+         */
+        #error {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-grow: 1;
+            padding: 0 2rem;
+        }
+
+        #error > pre {
+            width: 100%;
+            display: none;
+        }
+
+        #error-box {
+            width: 95%;
+            max-width: 32rem;
+            padding: 0.5rem 2rem 2rem 2rem;
+            margin-top: 2rem;
+            overflow: hidden;
+
+            border-radius: 8px;
+            color: #383d41;
+            border: solid 2px #d6d8db;
+            background: #e2e3e5;
+        }
+
+        #error-box > h1 {
+            line-break: anywhere;
+        }
+
+        #error-box img {
+            width: calc(100% + 4rem);
+            margin: 1rem -2rem -3rem -2rem;
+        }
+    </style>
 </head>
 <body>
 <header id="header">
