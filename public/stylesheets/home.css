@@ -21,19 +21,30 @@
     font-size: 1.33em;
 }
 
-#intro .disclaimer {
-    font-size: 1rem;
-    color: #6b6b72;
+#enter-docs-btn {
+    float: right;
+    margin: 10px;
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+    font-size:  1.5rem;
+
+    color: #fff;
+    background: #1f9978;
+    border: #1f9978 solid 1px;
+
+    text-decoration: none;
+
+    transition: background 0.2s;
 }
 
-#intro .disclaimer svg {
-    vertical-align: middle;
+#enter-docs-btn:hover {
+    background: #166550;
 }
 
 #car-section {
     flex-basis: min-content;
     flex-grow: 1;
-    min-width:900px
+    min-width: 900px
 }
 
 #car-grid {
