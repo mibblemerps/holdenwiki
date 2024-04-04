@@ -7,6 +7,7 @@ import env from '../env.js';
 import Index, {PdfIndex} from '../docs/index.js';
 
 const docsRoot = path.resolve(env.DOCS_ROOT);
+const pdfsRoot = path.resolve(env.PDFS_ROOT);
 
 /**
  *
@@ -37,7 +38,7 @@ export default function(index, pdfIndex) {
         }
 
         res.contentType('application/pdf')
-        res.sendFile(env.PDFS_ROOT + '/' + pdfIndex.lookup(req.params[0]));
+        res.sendFile(pdfsRoot + '/' + pdfIndex.lookup(req.params[0]));
     });
 
     // Actual document HTML
