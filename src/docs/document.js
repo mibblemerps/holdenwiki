@@ -6,6 +6,7 @@ import {pipeline} from 'node:stream/promises';
 import {Transform} from 'node:stream';
 
 const docsRoot = path.resolve(env.DOCS_ROOT);
+const pdfsRoot = path.resolve(env.PDFS_ROOT);
 
 const CSS_MARKER = '{css}';
 const HTML_MARKER = '{html}';
@@ -15,14 +16,15 @@ const DEFAULT_HIGH_WATER_MARK = 4096;
 
 /**
  * Converts doc URL to a valid local path while sanitizing against path traversal.
+ * @param {string} root
  * @param {string} docPath
  * @return {string}
  */
-function docUrlToPath(docPath) {
-    docPath = path.normalize(decodeURI(docPath.replace('\\', '/').toLowerCase()));
+function docUrlToPath(root, docPath) {
+    docPath = path.normalize(decodeURI(docPath.replace('\\', '/')));
 
-    let absolutePath = path.join(docsRoot, docPath);
-    if (absolutePath.indexOf(docsRoot) !== 0) {
+    let absolutePath = path.join(root, docPath);
+    if (absolutePath.indexOf(root) !== 0) {
         throw new Error('Path traversal in doc path');
     }
 
@@ -42,11 +44,11 @@ export default class Document {
     }
 
     get name() {
-        return decodeURI(this.url.substring(this.url.lastIndexOf('/') + 1)).toLowerCase();
+        return decodeURI(this.url.substring(this.url.lastIndexOf('/') + 1));
     }
 
     get path() {
-        return docUrlToPath(this.url);
+        return docUrlToPath(docsRoot, this.url);
     }
 
     /**
@@ -89,15 +91,6 @@ export default class Document {
         to.write(template.substring(index));
 
         to.end();
-    }
-
-    async exists() {
-        try {
-            await fs.promises.access(this.path + '/' + this.name + '.html', fs.constants.R_OK);
-            return true;
-        } catch (err) {
-            return false;
-        }
     }
 
     _readOutline() {
