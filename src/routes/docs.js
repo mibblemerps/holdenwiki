@@ -76,6 +76,7 @@ router.get(/^(.+)$/i, async (req, res, next) => {
 
     let outline;
     let viewUrl;
+    let isFallbackToPdf = false;
     if (index.exists(req.url)) {
         viewUrl = req.baseUrl + req.url + '/' + fileName + '.html';
 
@@ -89,6 +90,7 @@ router.get(/^(.+)$/i, async (req, res, next) => {
         outline = Buffer.concat(chunks).toString();
     } else if (pdfIndex.exists(req.url)) {
         viewUrl = req.baseUrl + '/pdf/' + req.url + '.pdf';
+        isFallbackToPdf = true;
     } else {
         next();
         return;
@@ -97,6 +99,7 @@ router.get(/^(.+)$/i, async (req, res, next) => {
     res.render('viewer', {
         url: viewUrl,
         fileName: originalFileName,
+        isFallbackToPdf: isFallbackToPdf,
         sidebar: outline
     });
 });
