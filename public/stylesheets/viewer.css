@@ -5,13 +5,14 @@ body {
     display: flex;
     flex-direction: column;
     height: 100vh;
+    background: #fff;
 }
 
 body > header {
     height: 5rem;
     display: flex;
     align-items: center;
-    background: #2d2323;
+    background: #201E1F;
 }
 
 body > header .branding {
@@ -25,7 +26,7 @@ body > header .branding {
     height: 1.5rem;
     margin: 0 0.5rem 0 0.75rem;
     padding: 0.4rem;
-    background: #626262;
+    background: #3d3d3d;
     border-radius: 4px;
     cursor: pointer;
 
@@ -163,5 +164,43 @@ body > header h1 small {
 .alert > * {
     display: inline-block;
     vertical-align: top;
+}
+
+/*
+Container for full page error
+ */
+#error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+    padding: 0 2rem;
+}
+
+#error > pre {
+    width: 100%;
+    display: none;
+}
+
+#error-box {
+    width: 95%;
+    max-width: 32rem;
+    padding: 0.5rem 2rem 2rem 2rem;
+    margin-top: 2rem;
+    overflow: hidden;
+
+    border-radius: 8px;
+    color: #383d41;
+    border: solid 2px #d6d8db;
+    background: #e2e3e5;
+}
+
+#error-box > h1 {
+    line-break: anywhere;
+}
+
+#error-box img {
+    width: calc(100% + 4rem);
+    margin: 1rem -2rem -3rem -2rem;
 }
 

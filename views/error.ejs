@@ -1,3 +1,33 @@
-<h1><%= message %></h1>
-<h2><%= error.status %></h2>
-<pre><%= error.stack %></pre>
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Holden.wiki: <%= message %></title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/images/favicon.svg">
+
+    <link rel="stylesheet" href="/stylesheets/viewer.css">
+</head>
+<body>
+<header id="header">
+    <a href="/" class="branding">
+        <img src="/images/holden.svg" alt="Holden Logo" class="logo">
+        <h1>holden<small>.wiki</small></h1>
+    </a>
+</header>
+<main>
+    <div id="error">
+        <div id="error-box">
+            <h1><%= error.status %> <%= message %> :(</h1>
+            <ul>
+                <li><a href="/">Return home &raquo;</a></li>
+                <li><a href="/docs">Passenger Vehicle - Main Menu &raquo;</a></li>
+            </ul>
+            <img src="/images/fire.jpg" alt="Commodore on fire">
+        </div>
+
+        <pre><%= error.stack %></pre>
+    </div>
+</main>
+</body>
+</html>
