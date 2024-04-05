@@ -50,8 +50,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static('public'));
 
-//app.use('/', indexRouter);
-app.get('/', (req, res) => { res.redirect('/docs/Main Menu'); })
+app.use('/', indexRouter);
 app.use('/docs', docsRouter(index, pdfIndex));
 
 app.get('/robots.txt', async (req, res) => {

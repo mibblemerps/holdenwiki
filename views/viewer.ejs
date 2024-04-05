@@ -9,28 +9,23 @@
     <link rel="stylesheet" href="/stylesheets/main.css">
     <link rel="stylesheet" href="/stylesheets/viewer.css">
 
+    <script type="application/javascript" src="/javascripts/main.js"></script>
     <script type="application/javascript" src="/javascripts/viewer.js"></script>
 </head>
 <body>
-    <header id="header">
-        <img src="/images/menu.svg" alt="Menu" id="menu-button" role="button">
-
-        <a href="/" class="branding">
-            <img src="/images/holden.svg" alt="Holden Logo" class="logo">
-            <h1>holden<small>.wiki</small></h1>
-        </a>
-    </header>
-    <main>
-        <div id="sidebar">
+    <%- include('partials/header', {alwaysShowMenuButton: true}) %>
+    <div id="container">
+        <div id="sidebar" <% if (locals.isFallbackToPdf) { %> style="display: none" <% } %>>
             <div id="outline">
+                <%- include('partials/nav', {class: 'mobile'}) %>
                 <%- sidebar %>
             </div>
             <footer id="sidebar-footer">
                 <div>Made by Mibble &hearts;</div>
             </footer>
         </div>
-        <div id="viewer-container">
-            <% if (isFallbackToPdf) { %>
+        <main>
+            <% if (locals.isFallbackToPdf) { %>
                 <div class="alert">
                     <div>
                         <p style="font-weight: bold">Holden.wiki doesn't have this PDF converted yet!</p>
@@ -39,7 +34,7 @@
                 </div>
             <% } %>
             <iframe id="viewer" title="Document Viewer" src="<%= url %>" width="100%" height="800px"></iframe>
-        </div>
-    </main>
+        </main>
+    </div>
 </body>
 </html>

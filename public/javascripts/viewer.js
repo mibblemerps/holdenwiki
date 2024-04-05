@@ -13,16 +13,4 @@ window.addEventListener('hashchange', () => {
 
 window.addEventListener('load', () => {
     updateHash();
-
-    document.getElementById('menu-button').addEventListener('click', (e) => {
-        let sidebar = document.getElementById('sidebar');
-        if (sidebar.style.display === 'none') {
-            sidebar.style.display = 'flex';
-        } else {
-            sidebar.style.display = 'none';
-        }
-    });
-
-    // Make sidebar default to hidden on mobile
-    document.getElementById('sidebar').style.display = (document.body.clientWidth < 768) ? 'none' : 'flex';
 });

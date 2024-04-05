@@ -1,0 +1,8 @@
+<header id="header">
+    <img src="/images/menu.svg" alt="Menu" id="menu-button" role="button" <% if (!locals.alwaysShowMenuButton) { %> class="mobile" <% } %>>
+    <a href="/" class="branding">
+        <img src="/images/holden.svg" alt="Holden Logo" class="logo">
+        <h1>holden<small>.wiki</small></h1>
+    </a>
+    <%- include('nav', {class: 'desktop'}) %>
+</header>

@@ -37,6 +37,56 @@ body > header .branding {
     opacity: 0.8;
 }
 
+#container {
+    display: flex;
+    flex-grow: 1;
+    align-items: stretch;
+}
+
+#sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 22.5rem;
+    background: #312e2e;
+    z-index: 10;
+}
+
+@media only screen and (max-width: 768px) {
+    #sidebar {
+        display: none;
+        position: absolute;
+        width: 100vw !important;
+    }
+
+    body > header nav {
+        display: none;
+    }
+
+    .desktop {
+        display: none !important;
+    }
+}
+
+@media only screen and (min-width: 769px) {
+    .mobile {
+        display: none !important;
+    }
+}
+
+#sidebar-footer {
+    display: flex;
+    height: 2rem;
+    background: #2d2323;
+    color: #fff;
+}
+
+#sidebar-footer div {
+    color: rgba(255,255,255,0.67);
+    flex-grow: 1;
+    text-align: center;
+    align-self: center;
+}
+
 body > header .logo {
     height: 3.5rem;
     margin-left: 0.5rem;
@@ -51,4 +101,46 @@ body > header h1 {
 body > header h1 small {
     color: #b2b2b2;
 }
+
+body > header nav {
+    height: 3.5rem;
+    display: flex;
+    align-items: stretch;
+    margin-left: 1.75rem;
+}
+
+body > header nav a {
+    display: block;
+    padding: 0 1rem;
+    line-height: 3.5rem;
+    color: #4ABFD3;
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+body > header nav a:hover {
+    color: #fff;
+}
+
+#sidebar nav {
+    min-width: 10rem;
+}
+
+#sidebar nav a {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: #4ABFD3;
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+#sidebar nav a:hover {
+    color: #fff;
+}
+
+
 

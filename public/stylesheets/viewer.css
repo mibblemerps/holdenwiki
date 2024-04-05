@@ -1,38 +1,4 @@
-body > main {
-    display: flex;
-    flex-grow: 1;
-    align-items: stretch;
-}
 
-#sidebar {
-    display: flex;
-    flex-direction: column;
-    width: 22.5rem;
-    background: #312e2e;
-    z-index: 10;
-}
-
-@media only screen and (max-width: 768px) {
-    #sidebar {
-        display: none;
-        position: absolute;
-        width: 100vw !important;
-    }
-}
-
-#sidebar-footer {
-    display: flex;
-    height: 2rem;
-    background: #2d2323;
-    color: #fff;
-}
-
-#sidebar-footer div {
-    color: rgba(255,255,255,0.67);
-    flex-grow: 1;
-    text-align: center;
-    align-self: center;
-}
 
 #outline {
     box-sizing: border-box;
@@ -40,7 +6,7 @@ body > main {
     max-height: calc(100vh - 7rem);
     flex-grow: 1;
     margin: 0;
-    padding: 20px 0;
+    padding: 10px 0;
 }
 
 #outline ul {
@@ -69,7 +35,7 @@ body > main {
     text-decoration: none;
 }
 
-#viewer-container {
+main {
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
