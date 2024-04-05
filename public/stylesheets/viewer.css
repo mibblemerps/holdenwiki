@@ -87,3 +87,28 @@ iframe {
     height: 100%;
 }
 
+.alert {
+    box-sizing: border-box;
+    padding: .75rem 1.25rem;
+    border-left: solid 2px;
+    border-right: solid 2px;
+
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+}
+
+.alert:before {
+    display: inline-block;
+    content: "\26A0";
+    font-size: 4rem;
+    line-height: 4rem;
+    padding-right: 1rem;
+    opacity: 0.33;
+}
+
+.alert > * {
+    display: inline-block;
+    vertical-align: top;
+}
+
